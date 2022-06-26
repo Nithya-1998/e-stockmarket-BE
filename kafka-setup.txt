@@ -1,0 +1,34 @@
+Kafka & zookeeper steps:
+
+ Kafka default port - 9092
+ zookeeper - 2181
+
+bin -> windows (kafka configured .bat files to run kafka in zookeeper)
+config-> conf properties to run kafka & zookeeper
+libs->libraries to run kafka & zookeeper  
+
+Need to change log directory inside:
+config/server-properties(C:/kafka/kafka-logs) & zookeeper.properties (C:/kafka/zookeeper-data)
+
+To run kafka in zookeeper (individual terminal needs & cmds inside kafka folder)
+step 1: to run zookeeper server 
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties   ---> starts @ 2181 port
+step 2: to run apache kafka 
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+step 3: to create topics {not cluster based so partitions 1 & topicname:TestTopic & zookeeper running in the port 2181}
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic TestTopic
+
+Create another topic with diff topic name & list the topics by using below cmd in the same topics created terminal
+	.\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+Producer -> To create messages in the topic (chk in new terminal):
+
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic TestTopic
+>post msg any(posted msg here)
+
+Consumer -> To read messages from the topic (chk in new terminal):
+
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic TestTopic --from-beginning
+post msg any (received msg here)
+>
+

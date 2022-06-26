@@ -1,0 +1,29 @@
+{
+  "name": "user-details-api",
+  "version": "1.0.0",
+  "description": "Create, Update and Save User deatils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Nithya T",
+  "license": "ISC",
+  "keywords": [
+    "prometheus",
+    "node.js",
+    "monitoring",
+    "grafana",
+    "metrics"
+  ],
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-healthcheck": "^0.1.0",
+    "kafkajs": "^2.0.2",
+    "mongoose": "^6.3.4",
+    "nodemon": "^2.0.16",
+    "prom-client": "^14.0.1"
+  }
+}
